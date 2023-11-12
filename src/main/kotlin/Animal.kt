@@ -13,6 +13,10 @@ class Dog(name: String) : Animal(name) {
     override fun makeSound() {
         println("$name barks: Woof! Woof!")
     }
+
+    fun applyWater() {
+        println("Okay, now $name stinks")
+    }
 }
 
 class Cat(name: String) : Animal(name) {
@@ -38,18 +42,36 @@ fun main() {
     val dog = Dog("Buddy")
     val cat = Cat("Whiskers")
 
-    dog.makeSound() // Вывод: Buddy barks: Woof! Woof!
-    dog.eat() // Вывод: Buddy is eating.
-
-    cat.makeSound() // Вывод: Whiskers meows: Meow! Meow!
-    cat.eat() // Вывод: Whiskers is eating.
+//    dog.makeSound() // Вывод: Buddy barks: Woof! Woof!
+//    dog.eat() // Вывод: Buddy is eating.
+//
+//    cat.makeSound() // Вывод: Whiskers meows: Meow! Meow!
+//    cat.eat() // Вывод: Whiskers is eating.
 
 
     val cow = Cow("Mayka")
-    cow.eat()
-    cow.makeSound()
+
+    animalSays(dog)
+    animalSays(cat)
 }
 
 fun animalSays(animal: Animal) {
     animal.makeSound()
+    if (animal is Dog) {
+        val dog = animal as Dog
+        dog
+        println("Это собака")
+        applyWaterToDog(animal)
+    } else {
+        println("Это не собака")
+    }
+}
+
+private fun applyWaterToDog(dog: Dog) {
+    dog.applyWater()
+}
+
+fun processAnything(obj: Any) {
+    println(obj)
+
 }

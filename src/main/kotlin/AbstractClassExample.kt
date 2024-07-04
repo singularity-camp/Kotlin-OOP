@@ -9,6 +9,8 @@ abstract class Animal(val name: String) {
     }
 }
 
+abstract class SomeAbstractClass
+
 class Dog(name: String) : Animal(name) {
     override fun makeSound() {
         println("$name barks: Woof! Woof!")
@@ -35,31 +37,28 @@ class Cow(name: String) : Animal(name) {
     }
 }
 
-
-
-
 fun main() {
     val dog = Dog("Buddy")
     val cat = Cat("Whiskers")
 
 //    dog.makeSound() // Вывод: Buddy barks: Woof! Woof!
-//    dog.eat() // Вывод: Buddy is eating.
-//
+    dog.eat() // Вывод: Buddy is eating.
+    dog.applyWater()
+
 //    cat.makeSound() // Вывод: Whiskers meows: Meow! Meow!
-//    cat.eat() // Вывод: Whiskers is eating.
+    cat.eat() // Вывод: Whiskers is eating.
 
 
     val cow = Cow("Mayka")
-
-    animalSays(dog)
-    animalSays(cat)
+////
+//    animalSays(dog)
+//    animalSays(cat)
 }
 
 fun animalSays(animal: Animal) {
     animal.makeSound()
     if (animal is Dog) {
         val dog = animal as Dog
-        dog
         println("Это собака")
         applyWaterToDog(animal)
     } else {

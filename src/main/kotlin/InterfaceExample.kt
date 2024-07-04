@@ -12,7 +12,6 @@ class Painter {
     }
 }
 
-
 class Circle : Drawable {
     override fun draw() {
         // Code describing how to draw circle
